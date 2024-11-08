@@ -1,3 +1,6 @@
+using bakery_management_system.Utils;
+using MySql.Data.MySqlClient;
+
 namespace bakery_management_system
 {
     internal static class Program
@@ -8,10 +11,27 @@ namespace bakery_management_system
         [STAThread]
         static void Main()
         {
+            // Test the database connection
+            TestDatabaseConnection();
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+        }
+
+        private static void TestDatabaseConnection()
+        {
+            try
+            {
+                using MySqlConnection connection = DatabaseHelper.GetConnection();
+                connection.Open();
+                MessageBox.Show("Connection successful!", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Connection failed: {ex.Message}", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
