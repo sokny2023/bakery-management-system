@@ -14,9 +14,9 @@ namespace bakery_management_system.Controllers
             _paymentService = new PaymentService();
         }
 
-        public bool PayNow(int employeeId, int customerId, string paymentMethod, out string errorMessage)
+        public bool PayNow(int employeeId, int customerId, int cartId, string paymentMethod, out string errorMessage)
         {
-            return _paymentService.ProcessPayment(employeeId, customerId, paymentMethod, out errorMessage);
+            return _paymentService.ProcessPayment(employeeId, customerId, cartId, paymentMethod, out errorMessage);
         }
 
         public bool RemoveCartItem(int cartId)

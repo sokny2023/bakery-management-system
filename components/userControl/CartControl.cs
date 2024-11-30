@@ -61,11 +61,12 @@ namespace bakery_management_system.components.userControl
                     try
                     {
                         string errorMessage;
-                        bool success = _cartController.PayNow(UserSession.CurrentUser.EmployeeId, customerId, paymentMethod, out errorMessage);
+                        bool success = _cartController.PayNow(UserSession.CurrentUser.EmployeeId, customerId, _cart.CartId, paymentMethod, out errorMessage);
+
                         if (success)
                         {
                             MessageBox.Show("Payment successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            CartUpdated?.Invoke(this, EventArgs.Empty);
+                            CartUpdated?.Invoke(this, EventArgs.Empty); // Notify parent form to refresh the cart list
                         }
                         else
                         {
