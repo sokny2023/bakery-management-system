@@ -1,5 +1,7 @@
 ﻿using bakery_management_system.Controllers;
 using bakery_management_system.Models;
+using bakery_management_system.Utils;
+using bakery_management_system.Views;
 
 namespace bakery_management_system.components.userControl
 {
@@ -41,6 +43,44 @@ namespace bakery_management_system.components.userControl
             }
         }
 
+        private void btnPayNow_Click(object sender, EventArgs e)
+        {
+            if (_cart == null)
+            {
+                MessageBox.Show("No items available for payment.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var paymentForm = new PaymentForm())
+            {
+                if (paymentForm.ShowDialog() == DialogResult.OK)
+                {
+                    var customerId = paymentForm.CustomerId;
+                    var paymentMethod = paymentForm.PaymentMethod;
+
+                    try
+                    {
+                        string errorMessage;
+                        bool success = _cartController.PayNow(UserSession.CurrentUser.EmployeeId, customerId, paymentMethod, out errorMessage);
+                        if (success)
+                        {
+                            MessageBox.Show("Payment successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CartUpdated?.Invoke(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Payment failed: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Payment error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+
         private void ptRemove_Click(object sender, EventArgs e)
         {
             if (_cart == null) return;
@@ -63,6 +103,5 @@ namespace bakery_management_system.components.userControl
                 }
             }
         }
-
     }
 }

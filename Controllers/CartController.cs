@@ -6,10 +6,17 @@ namespace bakery_management_system.Controllers
     public class CartController
     {
         private readonly CartService _cartService;
+        private readonly PaymentService _paymentService;
 
         public CartController()
         {
             _cartService = new CartService();
+            _paymentService = new PaymentService();
+        }
+
+        public bool PayNow(int employeeId, int customerId, string paymentMethod, out string errorMessage)
+        {
+            return _paymentService.ProcessPayment(employeeId, customerId, paymentMethod, out errorMessage);
         }
 
         public bool RemoveCartItem(int cartId)

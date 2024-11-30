@@ -39,7 +39,9 @@ namespace bakery_management_system.Services
                     p.name AS product_name, p.price, p.image_path
                 FROM Cart c
                 INNER JOIN Products p ON c.product_id = p.product_id
-                WHERE c.employee_id = @EmployeeId";
+                WHERE c.employee_id = @EmployeeId
+                AND c.is_paid = FALSE;
+                ";
 
             using (var connection = DatabaseHelper.GetConnection())
             {

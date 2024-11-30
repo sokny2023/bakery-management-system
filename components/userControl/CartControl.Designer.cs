@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CartControl));
-            btnPay = new ButtonComponent1();
+            btnPayNow = new ButtonComponent1();
             pbProductImage = new PictureBox();
             lblProductPrice = new Label();
             lblProductName = new Label();
@@ -39,25 +39,26 @@
             ((System.ComponentModel.ISupportInitialize)ptRemove).BeginInit();
             SuspendLayout();
             // 
-            // btnPay
+            // btnPayNow
             // 
-            btnPay.BackColor = Color.FromArgb(255, 101, 0);
-            btnPay.BackgroundColor = Color.FromArgb(255, 101, 0);
-            btnPay.BorderColor = Color.PaleVioletRed;
-            btnPay.BorderRadius = 10;
-            btnPay.BorderSize = 0;
-            btnPay.FlatAppearance.BorderSize = 0;
-            btnPay.FlatStyle = FlatStyle.Flat;
-            btnPay.Font = new Font("Segoe UI Semibold", 12F);
-            btnPay.ForeColor = Color.White;
-            btnPay.Location = new Point(54, 351);
-            btnPay.Name = "btnPay";
-            btnPay.Padding = new Padding(15, 8, 15, 8);
-            btnPay.Size = new Size(188, 50);
-            btnPay.TabIndex = 7;
-            btnPay.Text = "Add to cart";
-            btnPay.TextColor = Color.White;
-            btnPay.UseVisualStyleBackColor = false;
+            btnPayNow.BackColor = Color.FromArgb(255, 101, 0);
+            btnPayNow.BackgroundColor = Color.FromArgb(255, 101, 0);
+            btnPayNow.BorderColor = Color.PaleVioletRed;
+            btnPayNow.BorderRadius = 10;
+            btnPayNow.BorderSize = 0;
+            btnPayNow.FlatAppearance.BorderSize = 0;
+            btnPayNow.FlatStyle = FlatStyle.Flat;
+            btnPayNow.Font = new Font("Segoe UI Semibold", 12F);
+            btnPayNow.ForeColor = Color.White;
+            btnPayNow.Location = new Point(54, 351);
+            btnPayNow.Name = "btnPayNow";
+            btnPayNow.Padding = new Padding(15, 8, 15, 8);
+            btnPayNow.Size = new Size(188, 50);
+            btnPayNow.TabIndex = 7;
+            btnPayNow.Text = "Buy now";
+            btnPayNow.TextColor = Color.White;
+            btnPayNow.UseVisualStyleBackColor = false;
+            btnPayNow.Click += btnPayNow_Click;
             // 
             // pbProductImage
             // 
@@ -123,7 +124,7 @@
             BackColor = SystemColors.ControlLight;
             Controls.Add(ptRemove);
             Controls.Add(lblQuantity);
-            Controls.Add(btnPay);
+            Controls.Add(btnPayNow);
             Controls.Add(pbProductImage);
             Controls.Add(lblProductPrice);
             Controls.Add(lblProductName);
@@ -138,7 +139,7 @@
 
         #endregion
 
-        private ButtonComponent1 btnPay;
+        private ButtonComponent1 btnPayNow;
         private PictureBox pbProductImage;
         private Label lblProductPrice;
         private Label lblProductName;
