@@ -1,0 +1,68 @@
+﻿using bakery_management_system.Controllers;
+using bakery_management_system.Models;
+
+namespace bakery_management_system.components.userControl
+{
+    public partial class CartControl : UserControl
+    {
+        private Cart _cart;
+        private readonly CartController _cartController;
+
+        public event EventHandler CartUpdated; // Event to notify the parent form of changes
+
+        public CartControl()
+        {
+            InitializeComponent();
+            _cartController = new CartController();
+        }
+
+        public void SetCart(Cart cart)
+        {
+            _cart = cart; // Store the cart object for reference
+            lblProductName.Text = cart.ProductName;
+            lblProductPrice.Text = $"${cart.Price:F2}";
+            lblQuantity.Text = $"Quantity: {cart.Quantity}";
+
+            try
+            {
+                if (!string.IsNullOrEmpty(cart.ImagePath) && File.Exists(cart.ImagePath))
+                {
+                    pbProductImage.Image = Image.FromFile(cart.ImagePath);
+                }
+                else
+                {
+                    pbProductImage.Image = Properties.Resources.bakery1; // Replace with default image
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading image for product {cart.ProductName}: {ex.Message}");
+                pbProductImage.Image = Properties.Resources.bakery1;
+            }
+        }
+
+        private void ptRemove_Click(object sender, EventArgs e)
+        {
+            if (_cart == null) return;
+
+            // Confirm before removing
+            var confirmResult = MessageBox.Show($"Are you sure you want to remove {_cart.ProductName} from the cart?",
+                "Confirm Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                bool isRemoved = _cartController.RemoveCartItem(_cart.CartId);
+                if (isRemoved)
+                {
+                    MessageBox.Show("Item removed from cart successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CartUpdated?.Invoke(this, EventArgs.Empty); // Notify parent form
+                }
+                else
+                {
+                    MessageBox.Show("Failed to remove item from cart.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+    }
+}
