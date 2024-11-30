@@ -5,37 +5,49 @@
         public int CustomerId { get; private set; }
         public string PaymentMethod { get; private set; }
 
+        private const string ErrorTitle = "Input Error";
+        private const string CustomerIdError = "Please enter a valid Customer ID.";
+        private const string PaymentMethodError = "Please select a valid payment method.";
+
         public PaymentForm()
         {
             InitializeComponent();
+            InitializePaymentMethods();
+        }
 
-            // Populate payment method combo box
+        private void InitializePaymentMethods()
+        {
+            cmbPaymentMethod.Items.Clear();
             cmbPaymentMethod.Items.Add("Cash");
             cmbPaymentMethod.Items.Add("Credit Card");
             cmbPaymentMethod.Items.Add("Mobile Payment");
             cmbPaymentMethod.SelectedIndex = 0; // Default selection
         }
 
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCustomerId.Text) || !int.TryParse(txtCustomerId.Text, out int customerId))
+            string customerIdInput = txtCustomerId.Text?.Trim();
+
+            // Validate Customer ID
+            if (string.IsNullOrEmpty(customerIdInput) || !int.TryParse(customerIdInput, out int customerId))
             {
-                MessageBox.Show("Please enter a valid Customer ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CustomerIdError, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (cmbPaymentMethod.SelectedItem == null)
+            // Validate Payment Method
+            if (cmbPaymentMethod.SelectedItem == null || string.IsNullOrWhiteSpace(cmbPaymentMethod.SelectedItem.ToString()))
             {
-                MessageBox.Show("Please select a payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(PaymentMethodError, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Assign values
             CustomerId = customerId;
             PaymentMethod = cmbPaymentMethod.SelectedItem.ToString();
+
+            // Confirm dialog result
             DialogResult = DialogResult.OK;
         }
-
-
     }
 }

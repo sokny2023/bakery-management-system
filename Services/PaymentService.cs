@@ -73,13 +73,15 @@ namespace bakery_management_system.Services
                             cmd.ExecuteNonQuery();
                         }*/
 
-                        // Step 5: Mark cart as paid
-                        query = "UPDATE Cart SET is_paid = 1 WHERE employee_id = @employeeId AND is_paid = 1";
+
+                        // Step 5: Mark cart items as paid
+                        query = "UPDATE Cart SET is_paid = 1 WHERE employee_id = @employeeId AND is_paid = 0";
                         using (var cmd = new MySqlCommand(query, connection, transaction))
                         {
                             cmd.Parameters.AddWithValue("@employeeId", employeeId);
                             cmd.ExecuteNonQuery();
                         }
+
 
                         transaction.Commit();
                         return true;
