@@ -312,6 +312,7 @@
             btnCategories.TextAlign = ContentAlignment.MiddleLeft;
             btnCategories.TextColor = Color.Black;
             btnCategories.UseVisualStyleBackColor = false;
+            btnCategories.Click += btnCategories_Click;
             // 
             // pbLogo
             // 

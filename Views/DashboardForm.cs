@@ -129,5 +129,12 @@ namespace bakery_management_system.Views
             this.Hide();
         }
 
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            categoryForm.Show();
+            this.Hide();
+        }
+
     }
 }
