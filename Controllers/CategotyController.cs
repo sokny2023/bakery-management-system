@@ -12,6 +12,11 @@ namespace bakery_management_system.Controllers
             _categoryService = new CategoryService();
         }
 
+        public List<Category> SearchCategories(string keyword)
+        {
+            return _categoryService.SearchCategories(keyword);
+        }
+
         public List<Category> GetCategories()
         {
             return _categoryService.GetCategories();

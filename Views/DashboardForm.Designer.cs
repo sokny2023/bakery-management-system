@@ -37,7 +37,6 @@
             pbProfile = new components.PictureBoxComponent1();
             panel4 = new Panel();
             lblWelcome = new Label();
-            cmbCategory = new ComboBox();
             btnSearch = new Button();
             txtSearch = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -150,7 +149,6 @@
             // panel4
             // 
             panel4.Controls.Add(lblWelcome);
-            panel4.Controls.Add(cmbCategory);
             panel4.Controls.Add(btnSearch);
             panel4.Controls.Add(txtSearch);
             panel4.Dock = DockStyle.Fill;
@@ -170,21 +168,12 @@
             lblWelcome.TabIndex = 3;
             lblWelcome.Text = "label1";
             // 
-            // cmbCategory
-            // 
-            cmbCategory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(826, 26);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(151, 36);
-            cmbCategory.TabIndex = 2;
-            // 
             // btnSearch
             // 
             btnSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(682, 18);
+            btnSearch.Location = new Point(665, 17);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(103, 51);
+            btnSearch.Size = new Size(103, 42);
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -192,10 +181,10 @@
             // 
             // txtSearch
             // 
-            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(325, 26);
+            txtSearch.Font = new Font("Segoe UI", 14F);
+            txtSearch.Location = new Point(318, 19);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(321, 34);
+            txtSearch.Size = new Size(321, 39);
             txtSearch.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -398,7 +387,6 @@
         private Panel panel4;
         private TextBox txtSearch;
         private Button btnSearch;
-        private ComboBox cmbCategory;
         private Label lblWelcome;
     }
 }
