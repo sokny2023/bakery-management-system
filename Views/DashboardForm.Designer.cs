@@ -42,14 +42,11 @@
             txtSearch = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel1 = new Panel();
-            btnReports = new components.ButtonSidebar1();
             btnMyOrders = new components.ButtonSidebar1();
             btnProducts = new components.ButtonSidebar();
             btnMyPayments = new components.ButtonSidebar1();
-            btnCustomers = new components.ButtonSidebar1();
             btnCategories = new components.ButtonSidebar1();
             pbLogo = new PictureBox();
-            btnEmployee = new components.ButtonSidebar1();
             panel3 = new Panel();
             logoutButton1 = new components.LogoutButton();
             tableLayoutPanel1.SuspendLayout();
@@ -218,41 +215,17 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnMyOrders);
             panel1.Controls.Add(btnProducts);
             panel1.Controls.Add(btnMyPayments);
-            panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnCategories);
             panel1.Controls.Add(pbLogo);
-            panel1.Controls.Add(btnEmployee);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Size = new Size(214, 949);
             panel1.TabIndex = 0;
-            // 
-            // btnReports
-            // 
-            btnReports.BackColor = SystemColors.Control;
-            btnReports.BackgroundColor = SystemColors.Control;
-            btnReports.BorderColor = Color.PaleVioletRed;
-            btnReports.BorderRadius = 10;
-            btnReports.BorderSize = 0;
-            btnReports.FlatAppearance.BorderSize = 0;
-            btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.Font = new Font("Segoe UI Semibold", 12F);
-            btnReports.ForeColor = Color.Black;
-            btnReports.Location = new Point(10, 472);
-            btnReports.Name = "btnReports";
-            btnReports.Padding = new Padding(15, 5, 30, 5);
-            btnReports.Size = new Size(188, 50);
-            btnReports.TabIndex = 10;
-            btnReports.Text = "Reports";
-            btnReports.TextAlign = ContentAlignment.MiddleLeft;
-            btnReports.TextColor = Color.Black;
-            btnReports.UseVisualStyleBackColor = false;
             // 
             // btnMyOrders
             // 
@@ -317,27 +290,7 @@
             btnMyPayments.TextAlign = ContentAlignment.MiddleLeft;
             btnMyPayments.TextColor = Color.Black;
             btnMyPayments.UseVisualStyleBackColor = false;
-            // 
-            // btnCustomers
-            // 
-            btnCustomers.BackColor = SystemColors.Control;
-            btnCustomers.BackgroundColor = SystemColors.Control;
-            btnCustomers.BorderColor = Color.PaleVioletRed;
-            btnCustomers.BorderRadius = 10;
-            btnCustomers.BorderSize = 0;
-            btnCustomers.FlatAppearance.BorderSize = 0;
-            btnCustomers.FlatStyle = FlatStyle.Flat;
-            btnCustomers.Font = new Font("Segoe UI Semibold", 12F);
-            btnCustomers.ForeColor = Color.Black;
-            btnCustomers.Location = new Point(10, 416);
-            btnCustomers.Name = "btnCustomers";
-            btnCustomers.Padding = new Padding(15, 5, 30, 5);
-            btnCustomers.Size = new Size(188, 50);
-            btnCustomers.TabIndex = 9;
-            btnCustomers.Text = "Customers";
-            btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
-            btnCustomers.TextColor = Color.Black;
-            btnCustomers.UseVisualStyleBackColor = false;
+            btnMyPayments.Click += btnMyPayments_Click;
             // 
             // btnCategories
             // 
@@ -369,27 +322,6 @@
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogo.TabIndex = 0;
             pbLogo.TabStop = false;
-            // 
-            // btnEmployee
-            // 
-            btnEmployee.BackColor = SystemColors.Control;
-            btnEmployee.BackgroundColor = SystemColors.Control;
-            btnEmployee.BorderColor = Color.PaleVioletRed;
-            btnEmployee.BorderRadius = 10;
-            btnEmployee.BorderSize = 0;
-            btnEmployee.FlatAppearance.BorderSize = 0;
-            btnEmployee.FlatStyle = FlatStyle.Flat;
-            btnEmployee.Font = new Font("Segoe UI Semibold", 12F);
-            btnEmployee.ForeColor = Color.Black;
-            btnEmployee.Location = new Point(10, 360);
-            btnEmployee.Name = "btnEmployee";
-            btnEmployee.Padding = new Padding(15, 5, 30, 5);
-            btnEmployee.Size = new Size(188, 50);
-            btnEmployee.TabIndex = 8;
-            btnEmployee.Text = "Employee";
-            btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
-            btnEmployee.TextColor = Color.Black;
-            btnEmployee.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -452,10 +384,7 @@
         private components.ButtonSidebar btnProducts;
         private components.ButtonSidebar1 btnMyOrders;
         private components.ButtonSidebar1 btnCategories;
-        private components.ButtonSidebar1 btnCustomers;
-        private components.ButtonSidebar1 btnEmployee;
         private components.ButtonSidebar1 btnMyPayments;
-        private components.ButtonSidebar1 btnReports;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel1;
         private Panel panel3;

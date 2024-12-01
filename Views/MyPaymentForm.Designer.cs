@@ -1,6 +1,6 @@
 ﻿namespace bakery_management_system.Views
 {
-    partial class CartForm
+    partial class MyPaymentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,29 +31,22 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel1 = new Panel();
+            logoutButton1 = new components.LogoutButton();
+            panel2 = new Panel();
             btnMyOrders = new components.ButtonSidebar1();
             btnProducts = new components.ButtonSidebar();
             btnMyPayments = new components.ButtonSidebar1();
             btnCategories = new components.ButtonSidebar1();
             pbLogo = new PictureBox();
-            panel5 = new Panel();
-            logoutButton1 = new components.LogoutButton();
             tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            panel3 = new Panel();
-            pbProfile = new components.PictureBoxComponent1();
-            panel2 = new Panel();
             panelComponent11 = new components.PanelComponent1();
-            flpCarts = new FlowLayoutPanel();
+            flpInvoices = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
-            panel5.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
             panelComponent11.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +63,7 @@
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1345, 792);
+            tableLayoutPanel1.Size = new Size(1469, 820);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -78,29 +71,57 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel2.Controls.Add(panel5, 0, 1);
+            tableLayoutPanel2.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel2.Controls.Add(panel2, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel2.Size = new Size(214, 786);
+            tableLayoutPanel2.Size = new Size(214, 814);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnMyOrders);
-            panel1.Controls.Add(btnProducts);
-            panel1.Controls.Add(btnMyPayments);
-            panel1.Controls.Add(btnCategories);
-            panel1.Controls.Add(pbLogo);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Controls.Add(logoutButton1);
+            panel1.Location = new Point(3, 667);
             panel1.Name = "panel1";
-            panel1.Size = new Size(208, 630);
+            panel1.Size = new Size(208, 144);
             panel1.TabIndex = 0;
+            // 
+            // logoutButton1
+            // 
+            logoutButton1.BackColor = Color.FromArgb(250, 64, 50);
+            logoutButton1.BackgroundColor = Color.FromArgb(250, 64, 50);
+            logoutButton1.BorderColor = Color.PaleVioletRed;
+            logoutButton1.BorderRadius = 10;
+            logoutButton1.BorderSize = 0;
+            logoutButton1.FlatAppearance.BorderSize = 0;
+            logoutButton1.FlatStyle = FlatStyle.Flat;
+            logoutButton1.Font = new Font("Segoe UI Semibold", 12F);
+            logoutButton1.ForeColor = Color.White;
+            logoutButton1.Location = new Point(43, 0);
+            logoutButton1.Name = "logoutButton1";
+            logoutButton1.Padding = new Padding(15, 8, 15, 8);
+            logoutButton1.Size = new Size(129, 51);
+            logoutButton1.TabIndex = 2;
+            logoutButton1.Text = "Logout";
+            logoutButton1.TextColor = Color.White;
+            logoutButton1.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnMyOrders);
+            panel2.Controls.Add(btnProducts);
+            panel2.Controls.Add(btnMyPayments);
+            panel2.Controls.Add(btnCategories);
+            panel2.Controls.Add(pbLogo);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(208, 658);
+            panel2.TabIndex = 1;
             // 
             // btnMyOrders
             // 
@@ -113,16 +134,15 @@
             btnMyOrders.FlatStyle = FlatStyle.Flat;
             btnMyOrders.Font = new Font("Segoe UI Semibold", 12F);
             btnMyOrders.ForeColor = Color.Black;
-            btnMyOrders.Location = new Point(8, 138);
+            btnMyOrders.Location = new Point(9, 250);
             btnMyOrders.Name = "btnMyOrders";
             btnMyOrders.Padding = new Padding(15, 5, 30, 5);
             btnMyOrders.Size = new Size(188, 50);
-            btnMyOrders.TabIndex = 14;
-            btnMyOrders.Text = "Products";
+            btnMyOrders.TabIndex = 11;
+            btnMyOrders.Text = "Carts";
             btnMyOrders.TextAlign = ContentAlignment.MiddleLeft;
             btnMyOrders.TextColor = Color.Black;
             btnMyOrders.UseVisualStyleBackColor = false;
-            btnMyOrders.Click += ProductsBtn_Click;
             // 
             // btnProducts
             // 
@@ -135,12 +155,12 @@
             btnProducts.FlatStyle = FlatStyle.Flat;
             btnProducts.Font = new Font("Segoe UI Semibold", 12F);
             btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(7, 250);
+            btnProducts.Location = new Point(9, 306);
             btnProducts.Name = "btnProducts";
             btnProducts.Padding = new Padding(15, 5, 30, 5);
             btnProducts.Size = new Size(189, 50);
-            btnProducts.TabIndex = 12;
-            btnProducts.Text = "Carts";
+            btnProducts.TabIndex = 9;
+            btnProducts.Text = "Payments";
             btnProducts.TextAlign = ContentAlignment.MiddleLeft;
             btnProducts.TextColor = Color.White;
             btnProducts.UseVisualStyleBackColor = false;
@@ -156,12 +176,12 @@
             btnMyPayments.FlatStyle = FlatStyle.Flat;
             btnMyPayments.Font = new Font("Segoe UI Semibold", 12F);
             btnMyPayments.ForeColor = Color.Black;
-            btnMyPayments.Location = new Point(7, 306);
+            btnMyPayments.Location = new Point(10, 138);
             btnMyPayments.Name = "btnMyPayments";
             btnMyPayments.Padding = new Padding(15, 5, 30, 5);
             btnMyPayments.Size = new Size(188, 50);
-            btnMyPayments.TabIndex = 15;
-            btnMyPayments.Text = "Payments";
+            btnMyPayments.TabIndex = 12;
+            btnMyPayments.Text = "Products";
             btnMyPayments.TextAlign = ContentAlignment.MiddleLeft;
             btnMyPayments.TextColor = Color.Black;
             btnMyPayments.UseVisualStyleBackColor = false;
@@ -177,11 +197,11 @@
             btnCategories.FlatStyle = FlatStyle.Flat;
             btnCategories.Font = new Font("Segoe UI Semibold", 12F);
             btnCategories.ForeColor = Color.Black;
-            btnCategories.Location = new Point(7, 194);
+            btnCategories.Location = new Point(10, 194);
             btnCategories.Name = "btnCategories";
             btnCategories.Padding = new Padding(15, 5, 30, 5);
             btnCategories.Size = new Size(188, 50);
-            btnCategories.TabIndex = 13;
+            btnCategories.TabIndex = 10;
             btnCategories.Text = "Categories";
             btnCategories.TextAlign = ContentAlignment.MiddleLeft;
             btnCategories.TextColor = Color.Black;
@@ -190,48 +210,18 @@
             // pbLogo
             // 
             pbLogo.Image = Properties.Resources.bms;
-            pbLogo.Location = new Point(16, 6);
+            pbLogo.Location = new Point(19, 6);
             pbLogo.Name = "pbLogo";
             pbLogo.Size = new Size(109, 109);
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            pbLogo.TabIndex = 11;
+            pbLogo.TabIndex = 8;
             pbLogo.TabStop = false;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(logoutButton1);
-            panel5.Location = new Point(3, 639);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(208, 125);
-            panel5.TabIndex = 1;
-            // 
-            // logoutButton1
-            // 
-            logoutButton1.BackColor = Color.FromArgb(250, 64, 50);
-            logoutButton1.BackgroundColor = Color.FromArgb(250, 64, 50);
-            logoutButton1.BorderColor = Color.PaleVioletRed;
-            logoutButton1.BorderRadius = 10;
-            logoutButton1.BorderSize = 0;
-            logoutButton1.FlatAppearance.BorderSize = 0;
-            logoutButton1.FlatStyle = FlatStyle.Flat;
-            logoutButton1.Font = new Font("Segoe UI Semibold", 12F);
-            logoutButton1.ForeColor = Color.White;
-            logoutButton1.Location = new Point(43, 3);
-            logoutButton1.Name = "logoutButton1";
-            logoutButton1.Padding = new Padding(15, 8, 15, 8);
-            logoutButton1.Size = new Size(129, 51);
-            logoutButton1.TabIndex = 2;
-            logoutButton1.Text = "Logout";
-            logoutButton1.TextColor = Color.White;
-            logoutButton1.UseVisualStyleBackColor = false;
-            logoutButton1.Click += LogoutBtn_Click;
             // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 0);
             tableLayoutPanel3.Controls.Add(panelComponent11, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(223, 3);
@@ -239,88 +229,43 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1119, 786);
+            tableLayoutPanel3.Size = new Size(1243, 814);
             tableLayoutPanel3.TabIndex = 1;
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel4.Controls.Add(panel3, 1, 0);
-            tableLayoutPanel4.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 3);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(1113, 79);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(pbProfile);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(966, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(144, 73);
-            panel3.TabIndex = 1;
-            // 
-            // pbProfile
-            // 
-            pbProfile.BackColor = Color.Transparent;
-            pbProfile.Image = Properties.Resources.photo_2023_08_01_20_25_42;
-            pbProfile.Location = new Point(40, 5);
-            pbProfile.Name = "pbProfile";
-            pbProfile.Size = new Size(65, 65);
-            pbProfile.TabIndex = 0;
-            pbProfile.TabStop = false;
-            // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(957, 73);
-            panel2.TabIndex = 0;
             // 
             // panelComponent11
             // 
             panelComponent11.BackColor = Color.White;
-            panelComponent11.Controls.Add(flpCarts);
+            panelComponent11.Controls.Add(flpInvoices);
             panelComponent11.Dock = DockStyle.Fill;
             panelComponent11.Location = new Point(20, 105);
             panelComponent11.Margin = new Padding(20);
             panelComponent11.Name = "panelComponent11";
-            panelComponent11.Size = new Size(1079, 661);
-            panelComponent11.TabIndex = 1;
+            panelComponent11.Size = new Size(1203, 689);
+            panelComponent11.TabIndex = 0;
             // 
-            // flpCarts
+            // flpInvoices
             // 
-            flpCarts.Dock = DockStyle.Fill;
-            flpCarts.Location = new Point(0, 0);
-            flpCarts.Name = "flpCarts";
-            flpCarts.Size = new Size(1079, 661);
-            flpCarts.TabIndex = 0;
+            flpInvoices.Dock = DockStyle.Fill;
+            flpInvoices.Location = new Point(0, 0);
+            flpInvoices.Margin = new Padding(30);
+            flpInvoices.Name = "flpInvoices";
+            flpInvoices.Size = new Size(1203, 689);
+            flpInvoices.TabIndex = 0;
             // 
-            // CartForm
+            // MyPaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 792);
+            ClientSize = new Size(1469, 820);
             Controls.Add(tableLayoutPanel1);
-            Name = "CartForm";
-            Text = "CartForm";
+            Name = "MyPaymentForm";
+            Text = "MyPaymentForm";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
-            panel5.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel4.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbProfile).EndInit();
             panelComponent11.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -330,19 +275,15 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel1;
+        private components.LogoutButton logoutButton1;
+        private Panel panel2;
         private components.ButtonSidebar1 btnMyOrders;
         private components.ButtonSidebar btnProducts;
         private components.ButtonSidebar1 btnMyPayments;
         private components.ButtonSidebar1 btnCategories;
         private PictureBox pbLogo;
         private TableLayoutPanel tableLayoutPanel3;
-        private TableLayoutPanel tableLayoutPanel4;
-        private Panel panel3;
-        private components.PictureBoxComponent1 pbProfile;
-        private Panel panel2;
         private components.PanelComponent1 panelComponent11;
-        private Panel panel5;
-        private components.LogoutButton logoutButton1;
-        private FlowLayoutPanel flpCarts;
+        private FlowLayoutPanel flpInvoices;
     }
 }

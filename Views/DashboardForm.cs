@@ -122,5 +122,12 @@ namespace bakery_management_system.Views
             }
         }
 
+        private void btnMyPayments_Click(object sender, EventArgs e)
+        {
+            MyPaymentForm myPaymentForm = new MyPaymentForm();
+            myPaymentForm.Show();
+            this.Hide();
+        }
+
     }
 }
