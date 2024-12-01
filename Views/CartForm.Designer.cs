@@ -45,6 +45,9 @@
             panel2 = new Panel();
             panelComponent11 = new components.PanelComponent1();
             flpCarts = new FlowLayoutPanel();
+            lblWelcome = new Label();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -54,6 +57,7 @@
             tableLayoutPanel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
+            panel2.SuspendLayout();
             panelComponent11.SuspendLayout();
             SuspendLayout();
             // 
@@ -165,6 +169,7 @@
             btnMyPayments.TextAlign = ContentAlignment.MiddleLeft;
             btnMyPayments.TextColor = Color.Black;
             btnMyPayments.UseVisualStyleBackColor = false;
+            btnMyPayments.Click += btnMyPayments_Click;
             // 
             // btnCategories
             // 
@@ -186,6 +191,7 @@
             btnCategories.TextAlign = ContentAlignment.MiddleLeft;
             btnCategories.TextColor = Color.Black;
             btnCategories.UseVisualStyleBackColor = false;
+            btnCategories.Click += btnCategories_Click;
             // 
             // pbLogo
             // 
@@ -279,6 +285,9 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(lblWelcome);
+            panel2.Controls.Add(btnSearch);
+            panel2.Controls.Add(txtSearch);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
@@ -304,6 +313,35 @@
             flpCarts.Size = new Size(1079, 661);
             flpCarts.TabIndex = 0;
             // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 14F);
+            lblWelcome.ForeColor = Color.FromArgb(255, 101, 0);
+            lblWelcome.Location = new Point(22, 19);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(78, 32);
+            lblWelcome.TabIndex = 9;
+            lblWelcome.Text = "label1";
+            // 
+            // btnSearch
+            // 
+            btnSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(663, 17);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(103, 42);
+            btnSearch.TabIndex = 8;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 14F);
+            txtSearch.Location = new Point(316, 19);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(321, 39);
+            txtSearch.TabIndex = 7;
+            // 
             // CartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -321,6 +359,8 @@
             tableLayoutPanel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbProfile).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panelComponent11.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -344,5 +384,8 @@
         private Panel panel5;
         private components.LogoutButton logoutButton1;
         private FlowLayoutPanel flpCarts;
+        private Label lblWelcome;
+        private Button btnSearch;
+        private TextBox txtSearch;
     }
 }

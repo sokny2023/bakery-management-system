@@ -20,6 +20,7 @@ namespace bakery_management_system.Views
             _employeeId = employeeId; // Assign the passed employeeId
 
             LoadCartItems();
+            UserInfo();
         }
 
         private void LoadCartItems()
@@ -43,6 +44,29 @@ namespace bakery_management_system.Views
             }
         }
 
+        private void UserInfo()
+        {
+            // Section: User Information Display
+            if (UserSession.CurrentUser != null)
+            {
+                lblWelcome.Text = $"Hello, {UserSession.CurrentUser.Name}";
+                if (!string.IsNullOrEmpty(UserSession.CurrentUser.ImagePath) && File.Exists(UserSession.CurrentUser.ImagePath))
+                {
+                    pbProfile.Image = Image.FromFile(UserSession.CurrentUser.ImagePath);
+                }
+                else
+                {
+                    // defual avatar
+                    pbProfile.Image = Properties.Resources.photo_2023_08_01_20_25_42;
+                }
+            }
+            else
+            {
+                lblWelcome.Text = "Welcome, Guest!";
+                pbProfile.Image = Properties.Resources.photo_2023_08_01_20_25_42;
+            }
+
+        }
 
         private void ProductsBtn_Click(object sender, EventArgs e)
         {
@@ -75,6 +99,18 @@ namespace bakery_management_system.Views
             }
         }
 
+        private void btnMyPayments_Click(object sender, EventArgs e)
+        {
+            MyPaymentForm myPaymentForm = new MyPaymentForm();
+            myPaymentForm.Show();
+            this.Hide();
+        }
 
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            categoryForm.Show();
+            this.Hide();
+        }
     }
 }
