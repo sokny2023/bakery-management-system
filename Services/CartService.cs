@@ -118,23 +118,54 @@ namespace bakery_management_system.Services
 
         public bool AddToCart(int employeeId, int productId, int quantity)
         {
-            string query = @"   
-                INSERT INTO Cart (employee_id, product_id, quantity)
-                VALUES (@employeeId, @productId, @quantity)";
+            string checkQuery = @"
+                                SELECT quantity 
+                                FROM Cart 
+                                WHERE employee_id = @employeeId AND product_id = @productId AND is_paid = FALSE";
+
+            string updateQuery = @"
+                                UPDATE Cart 
+                                SET quantity = quantity + @quantity 
+                                WHERE employee_id = @employeeId AND product_id = @productId AND is_paid = FALSE";
+
+            string insertQuery = @"
+                                INSERT INTO Cart (employee_id, product_id, quantity) 
+                                VALUES (@employeeId, @productId, @quantity)";
 
             using (var connection = DatabaseHelper.GetConnection())
             {
                 try
                 {
                     connection.Open();
-                    using (var cmd = new MySqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@employeeId", employeeId);
-                        cmd.Parameters.AddWithValue("@productId", productId);
-                        cmd.Parameters.AddWithValue("@quantity", quantity);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                    // Check if the product already exists in the cart
+                    using (var checkCmd = new MySqlCommand(checkQuery, connection))
+                    {
+                        checkCmd.Parameters.AddWithValue("@employeeId", employeeId);
+                        checkCmd.Parameters.AddWithValue("@productId", productId);
+
+                        var existingQuantity = checkCmd.ExecuteScalar();
+                        if (existingQuantity != null) // Product exists in the cart
+                        {
+                            using (var updateCmd = new MySqlCommand(updateQuery, connection))
+                            {
+                                updateCmd.Parameters.AddWithValue("@quantity", quantity);
+                                updateCmd.Parameters.AddWithValue("@employeeId", employeeId);
+                                updateCmd.Parameters.AddWithValue("@productId", productId);
+
+                                return updateCmd.ExecuteNonQuery() > 0;
+                            }
+                        }
+                    }
+
+                    // Product does not exist in the cart; insert a new row
+                    using (var insertCmd = new MySqlCommand(insertQuery, connection))
+                    {
+                        insertCmd.Parameters.AddWithValue("@employeeId", employeeId);
+                        insertCmd.Parameters.AddWithValue("@productId", productId);
+                        insertCmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        return insertCmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
@@ -144,5 +175,6 @@ namespace bakery_management_system.Services
                 }
             }
         }
+
     }
 }
