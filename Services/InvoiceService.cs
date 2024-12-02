@@ -12,7 +12,7 @@ namespace bakery_management_system.Services
             string query = @"
                 SELECT 
                     i.invoice_id, i.invoice_date, i.total_amount,
-                    c.name AS customer_name, c.phone AS customer_phone,
+                    c.customer_name, c.phone AS customer_phone,
                     e.name AS employee_name,
                     p.name AS product_name, ii.quantity, ii.price
                 FROM Invoices i
@@ -34,11 +34,15 @@ namespace bakery_management_system.Services
                         {
                             while (reader.Read())
                             {
+                                // Extract the Invoice ID
                                 int invoiceId = reader.GetInt32("invoice_id");
+
+                                // Check if an invoice with this ID already exists in the list
                                 var existingInvoice = invoices.FirstOrDefault(i => i.InvoiceId == invoiceId);
 
                                 if (existingInvoice == null)
                                 {
+                                    // Create a new Invoice object and add it to the list
                                     existingInvoice = new Invoice
                                     {
                                         InvoiceId = invoiceId,
@@ -52,6 +56,7 @@ namespace bakery_management_system.Services
                                     invoices.Add(existingInvoice);
                                 }
 
+                                // Add the current invoice item to the existing invoice
                                 existingInvoice.Items.Add(new InvoiceItem
                                 {
                                     ProductName = reader.GetString("product_name"),
