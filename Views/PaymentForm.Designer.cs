@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtCustomerId = new TextBox();
+            txtCustomerPhone = new TextBox();
             label2 = new Label();
             cmbPaymentMethod = new ComboBox();
             btnConfirm = new components.ButtonComponent1();
@@ -40,16 +40,16 @@
             label1.AutoSize = true;
             label1.Location = new Point(269, 91);
             label1.Name = "label1";
-            label1.Size = new Size(128, 20);
+            label1.Size = new Size(157, 20);
             label1.TabIndex = 0;
-            label1.Text = "Input customer id:";
+            label1.Text = "Input customer phone:";
             // 
-            // txtCustomerId
+            // txtCustomerPhone
             // 
-            txtCustomerId.Location = new Point(492, 91);
-            txtCustomerId.Name = "txtCustomerId";
-            txtCustomerId.Size = new Size(125, 27);
-            txtCustomerId.TabIndex = 1;
+            txtCustomerPhone.Location = new Point(492, 91);
+            txtCustomerPhone.Name = "txtCustomerPhone";
+            txtCustomerPhone.Size = new Size(151, 27);
+            txtCustomerPhone.TabIndex = 1;
             // 
             // label2
             // 
@@ -97,7 +97,7 @@
             Controls.Add(btnConfirm);
             Controls.Add(cmbPaymentMethod);
             Controls.Add(label2);
-            Controls.Add(txtCustomerId);
+            Controls.Add(txtCustomerPhone);
             Controls.Add(label1);
             Name = "PaymentForm";
             Text = "PaymentForm";
@@ -108,7 +108,7 @@
         #endregion
 
         private Label label1;
-        private TextBox txtCustomerId;
+        private TextBox txtCustomerPhone;
         private Label label2;
         private ComboBox cmbPaymentMethod;
         private components.ButtonComponent1 btnConfirm;

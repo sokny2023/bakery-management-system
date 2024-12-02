@@ -1,18 +1,24 @@
-﻿namespace bakery_management_system.Views
+﻿using bakery_management_system.Controllers;
+using bakery_management_system.Models;
+
+namespace bakery_management_system.Views
 {
     public partial class PaymentForm : Form
     {
         public int CustomerId { get; private set; }
         public string PaymentMethod { get; private set; }
 
+        private readonly PaymentController _paymentController;
+
         private const string ErrorTitle = "Input Error";
-        private const string CustomerIdError = "Please enter a valid Customer ID.";
         private const string PaymentMethodError = "Please select a valid payment method.";
 
         public PaymentForm()
         {
             InitializeComponent();
             InitializePaymentMethods();
+
+            _paymentController = new PaymentController();
         }
 
         private void InitializePaymentMethods()
@@ -26,12 +32,18 @@
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            string customerIdInput = txtCustomerId.Text?.Trim();
+            // Default phone if no input is provided
+            string customerPhone = string.IsNullOrWhiteSpace(txtCustomerPhone.Text)
+                                   ? "000-000-0000"
+                                   : txtCustomerPhone.Text.Trim();
 
-            // Validate Customer ID
-            if (string.IsNullOrEmpty(customerIdInput) || !int.TryParse(customerIdInput, out int customerId))
+            // Fetch customer using phone (or default)
+            Customer customer = _paymentController.GetCustomerByPhone(customerPhone);
+
+            // Validate customer retrieval
+            if (customer == null)
             {
-                MessageBox.Show(CustomerIdError, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Customer with phone '{customerPhone}' not found.", ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -43,7 +55,7 @@
             }
 
             // Assign values
-            CustomerId = customerId;
+            CustomerId = customer.CustomerId;
             PaymentMethod = cmbPaymentMethod.SelectedItem.ToString();
 
             // Confirm dialog result
