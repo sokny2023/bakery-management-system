@@ -43,11 +43,15 @@
             panel3 = new Panel();
             pbProfile = new components.PictureBoxComponent1();
             panel2 = new Panel();
-            panelComponent11 = new components.PanelComponent1();
-            flpCarts = new FlowLayoutPanel();
             lblWelcome = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            panel4 = new Panel();
+            flpCarts = new FlowLayoutPanel();
+            panel6 = new Panel();
+            label1 = new Label();
+            btnBuyAll = new components.ButtonComponent1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -58,7 +62,9 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
             panel2.SuspendLayout();
-            panelComponent11.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            panel4.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -238,7 +244,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 0);
-            tableLayoutPanel3.Controls.Add(panelComponent11, 0, 1);
+            tableLayoutPanel3.Controls.Add(tableLayoutPanel5, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(223, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -294,25 +300,6 @@
             panel2.Size = new Size(957, 73);
             panel2.TabIndex = 0;
             // 
-            // panelComponent11
-            // 
-            panelComponent11.BackColor = Color.White;
-            panelComponent11.Controls.Add(flpCarts);
-            panelComponent11.Dock = DockStyle.Fill;
-            panelComponent11.Location = new Point(20, 105);
-            panelComponent11.Margin = new Padding(20);
-            panelComponent11.Name = "panelComponent11";
-            panelComponent11.Size = new Size(1079, 661);
-            panelComponent11.TabIndex = 1;
-            // 
-            // flpCarts
-            // 
-            flpCarts.Dock = DockStyle.Fill;
-            flpCarts.Location = new Point(0, 0);
-            flpCarts.Name = "flpCarts";
-            flpCarts.Size = new Size(1079, 661);
-            flpCarts.TabIndex = 0;
-            // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
@@ -342,6 +329,80 @@
             txtSearch.Size = new Size(321, 39);
             txtSearch.TabIndex = 7;
             // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.Controls.Add(panel4, 0, 1);
+            tableLayoutPanel5.Controls.Add(panel6, 0, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(3, 88);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 2;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new Size(1113, 695);
+            tableLayoutPanel5.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(flpCarts);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 83);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1107, 609);
+            panel4.TabIndex = 0;
+            // 
+            // flpCarts
+            // 
+            flpCarts.BackColor = Color.White;
+            flpCarts.Dock = DockStyle.Fill;
+            flpCarts.Location = new Point(0, 0);
+            flpCarts.Name = "flpCarts";
+            flpCarts.Size = new Size(1107, 609);
+            flpCarts.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(btnBuyAll);
+            panel6.Controls.Add(label1);
+            panel6.Location = new Point(3, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1107, 74);
+            panel6.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(22, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(344, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Here is your procuts, you can buy now";
+            // 
+            // btnBuyAll
+            // 
+            btnBuyAll.BackColor = Color.FromArgb(255, 101, 0);
+            btnBuyAll.BackgroundColor = Color.FromArgb(255, 101, 0);
+            btnBuyAll.BorderColor = Color.PaleVioletRed;
+            btnBuyAll.BorderRadius = 10;
+            btnBuyAll.BorderSize = 0;
+            btnBuyAll.FlatAppearance.BorderSize = 0;
+            btnBuyAll.FlatStyle = FlatStyle.Flat;
+            btnBuyAll.Font = new Font("Segoe UI Semibold", 12F);
+            btnBuyAll.ForeColor = Color.White;
+            btnBuyAll.Location = new Point(440, 12);
+            btnBuyAll.Name = "btnBuyAll";
+            btnBuyAll.Padding = new Padding(15, 8, 15, 8);
+            btnBuyAll.Size = new Size(188, 50);
+            btnBuyAll.TabIndex = 1;
+            btnBuyAll.Text = "Buy All";
+            btnBuyAll.TextColor = Color.White;
+            btnBuyAll.UseVisualStyleBackColor = false;
+            btnBuyAll.Click += btnBuyAll_Click;
+            // 
             // CartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -361,7 +422,10 @@
             ((System.ComponentModel.ISupportInitialize)pbProfile).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panelComponent11.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -380,12 +444,16 @@
         private Panel panel3;
         private components.PictureBoxComponent1 pbProfile;
         private Panel panel2;
-        private components.PanelComponent1 panelComponent11;
         private Panel panel5;
         private components.LogoutButton logoutButton1;
-        private FlowLayoutPanel flpCarts;
         private Label lblWelcome;
         private Button btnSearch;
         private TextBox txtSearch;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Panel panel4;
+        private FlowLayoutPanel flpCarts;
+        private Panel panel6;
+        private components.ButtonComponent1 btnBuyAll;
+        private Label label1;
     }
 }

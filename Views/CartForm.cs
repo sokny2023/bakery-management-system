@@ -112,5 +112,66 @@ namespace bakery_management_system.Views
             categoryForm.Show();
             this.Hide();
         }
+
+        private void btnBuyAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve all cart items for the employee
+                var carts = _cartController.GetCartsByEmployeeId(_employeeId);
+
+                if (carts == null || carts.Count == 0)
+                {
+                    MessageBox.Show("No items in the cart to purchase.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (var paymentForm = new PaymentForm())
+                {
+                    if (paymentForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var customerId = paymentForm.CustomerId;
+                        var paymentMethod = paymentForm.PaymentMethod;
+
+                        foreach (var cart in carts)
+                        {
+                            try
+                            {
+                                string errorMessage;
+                                bool success = _cartController.PayNow(
+                                    _employeeId,
+                                    customerId,
+                                    cart.CartId,
+                                    paymentMethod,
+                                    out errorMessage
+                                );
+
+                                if (!success)
+                                {
+                                    MessageBox.Show($"Payment failed for {cart.ProductName}: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return; // Exit early on first failure
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Payment error for {cart.ProductName}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return; // Exit early on exception
+                            }
+                        }
+
+                        // If all payments are successful
+                        MessageBox.Show("All items have been successfully purchased!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Notify parent form to refresh the cart list
+                        LoadCartItems();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while processing payments: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

@@ -42,12 +42,12 @@
             panelComponent11 = new components.PanelComponent1();
             flpInvoices = new FlowLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
+            panel3 = new Panel();
+            pbProfile = new components.PictureBoxComponent1();
             panel4 = new Panel();
             lblWelcome = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
-            panel3 = new Panel();
-            pbProfile = new components.PictureBoxComponent1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -56,9 +56,9 @@
             tableLayoutPanel3.SuspendLayout();
             panelComponent11.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -261,6 +261,7 @@
             // 
             // flpInvoices
             // 
+            flpInvoices.AutoScroll = true;
             flpInvoices.Dock = DockStyle.Fill;
             flpInvoices.Location = new Point(0, 0);
             flpInvoices.Margin = new Padding(30);
@@ -282,6 +283,25 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Size = new Size(1237, 79);
             tableLayoutPanel4.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(pbProfile);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(1090, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(144, 73);
+            panel3.TabIndex = 3;
+            // 
+            // pbProfile
+            // 
+            pbProfile.BackColor = Color.Transparent;
+            pbProfile.Image = Properties.Resources.photo_2023_08_01_20_25_42;
+            pbProfile.Location = new Point(40, 5);
+            pbProfile.Name = "pbProfile";
+            pbProfile.Size = new Size(65, 65);
+            pbProfile.TabIndex = 0;
+            pbProfile.TabStop = false;
             // 
             // panel4
             // 
@@ -323,25 +343,6 @@
             txtSearch.Size = new Size(321, 39);
             txtSearch.TabIndex = 0;
             // 
-            // panel3
-            // 
-            panel3.Controls.Add(pbProfile);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(1090, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(144, 73);
-            panel3.TabIndex = 3;
-            // 
-            // pbProfile
-            // 
-            pbProfile.BackColor = Color.Transparent;
-            pbProfile.Image = Properties.Resources.photo_2023_08_01_20_25_42;
-            pbProfile.Location = new Point(40, 5);
-            pbProfile.Name = "pbProfile";
-            pbProfile.Size = new Size(65, 65);
-            pbProfile.TabIndex = 0;
-            pbProfile.TabStop = false;
-            // 
             // MyPaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -358,10 +359,10 @@
             tableLayoutPanel3.ResumeLayout(false);
             panelComponent11.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbProfile).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
