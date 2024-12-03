@@ -50,8 +50,9 @@
             panel4 = new Panel();
             flpCarts = new FlowLayoutPanel();
             panel6 = new Panel();
-            label1 = new Label();
             btnBuyAll = new components.ButtonComponent1();
+            label1 = new Label();
+            btnCustomers = new components.ButtonSidebar1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -101,6 +102,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnMyOrders);
             panel1.Controls.Add(btnProducts);
             panel1.Controls.Add(btnMyPayments);
@@ -372,16 +374,6 @@
             panel6.Size = new Size(1107, 74);
             panel6.TabIndex = 1;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(22, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(344, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Here is your procuts, you can buy now";
-            // 
             // btnBuyAll
             // 
             btnBuyAll.BackColor = Color.FromArgb(255, 101, 0);
@@ -402,6 +394,38 @@
             btnBuyAll.TextColor = Color.White;
             btnBuyAll.UseVisualStyleBackColor = false;
             btnBuyAll.Click += btnBuyAll_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(22, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(344, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Here is your procuts, you can buy now";
+            // 
+            // btnCustomers
+            // 
+            btnCustomers.BackColor = SystemColors.Control;
+            btnCustomers.BackgroundColor = SystemColors.Control;
+            btnCustomers.BorderColor = Color.PaleVioletRed;
+            btnCustomers.BorderRadius = 10;
+            btnCustomers.BorderSize = 0;
+            btnCustomers.FlatAppearance.BorderSize = 0;
+            btnCustomers.FlatStyle = FlatStyle.Flat;
+            btnCustomers.Font = new Font("Segoe UI Semibold", 12F);
+            btnCustomers.ForeColor = Color.Black;
+            btnCustomers.Location = new Point(8, 362);
+            btnCustomers.Name = "btnCustomers";
+            btnCustomers.Padding = new Padding(15, 5, 30, 5);
+            btnCustomers.Size = new Size(188, 50);
+            btnCustomers.TabIndex = 16;
+            btnCustomers.Text = "Customers";
+            btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomers.TextColor = Color.Black;
+            btnCustomers.UseVisualStyleBackColor = false;
+            btnCustomers.Click += btnCustomers_Click;
             // 
             // CartForm
             // 
@@ -455,5 +479,6 @@
         private Panel panel6;
         private components.ButtonComponent1 btnBuyAll;
         private Label label1;
+        private components.ButtonSidebar1 btnCustomers;
     }
 }

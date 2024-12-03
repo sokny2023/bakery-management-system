@@ -48,6 +48,7 @@
             lblWelcome = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
+            btnCustomer = new components.ButtonSidebar1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -124,6 +125,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(btnCustomer);
             panel2.Controls.Add(btnCarts);
             panel2.Controls.Add(btnPyaments);
             panel2.Controls.Add(btnProducts);
@@ -343,6 +345,27 @@
             txtSearch.Size = new Size(321, 39);
             txtSearch.TabIndex = 0;
             // 
+            // btnCustomer
+            // 
+            btnCustomer.BackColor = SystemColors.Control;
+            btnCustomer.BackgroundColor = SystemColors.Control;
+            btnCustomer.BorderColor = Color.PaleVioletRed;
+            btnCustomer.BorderRadius = 10;
+            btnCustomer.BorderSize = 0;
+            btnCustomer.FlatAppearance.BorderSize = 0;
+            btnCustomer.FlatStyle = FlatStyle.Flat;
+            btnCustomer.Font = new Font("Segoe UI Semibold", 12F);
+            btnCustomer.ForeColor = Color.Black;
+            btnCustomer.Location = new Point(9, 362);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Padding = new Padding(15, 5, 30, 5);
+            btnCustomer.Size = new Size(188, 50);
+            btnCustomer.TabIndex = 13;
+            btnCustomer.Text = "Customers";
+            btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.TextColor = Color.Black;
+            btnCustomer.UseVisualStyleBackColor = false;
+            // 
             // MyPaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -388,5 +411,6 @@
         private TextBox txtSearch;
         private Panel panel3;
         private components.PictureBoxComponent1 pbProfile;
+        private components.ButtonSidebar1 btnCustomer;
     }
 }

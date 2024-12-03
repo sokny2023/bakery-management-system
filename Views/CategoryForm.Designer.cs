@@ -48,6 +48,7 @@
             lblWelcome = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
+            btnCustomers = new components.ButtonSidebar1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnMyOrders);
             panel1.Controls.Add(btnCategories);
             panel1.Controls.Add(btnMyPayments);
@@ -343,6 +345,28 @@
             txtSearch.Size = new Size(321, 39);
             txtSearch.TabIndex = 4;
             // 
+            // btnCustomers
+            // 
+            btnCustomers.BackColor = SystemColors.Control;
+            btnCustomers.BackgroundColor = SystemColors.Control;
+            btnCustomers.BorderColor = Color.PaleVioletRed;
+            btnCustomers.BorderRadius = 10;
+            btnCustomers.BorderSize = 0;
+            btnCustomers.FlatAppearance.BorderSize = 0;
+            btnCustomers.FlatStyle = FlatStyle.Flat;
+            btnCustomers.Font = new Font("Segoe UI Semibold", 12F);
+            btnCustomers.ForeColor = Color.Black;
+            btnCustomers.Location = new Point(11, 359);
+            btnCustomers.Name = "btnCustomers";
+            btnCustomers.Padding = new Padding(15, 5, 30, 5);
+            btnCustomers.Size = new Size(188, 50);
+            btnCustomers.TabIndex = 13;
+            btnCustomers.Text = "Customers";
+            btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomers.TextColor = Color.Black;
+            btnCustomers.UseVisualStyleBackColor = false;
+            btnCustomers.Click += btnCustomers_Click;
+            // 
             // CategoryForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -388,5 +412,6 @@
         private TextBox txtSearch;
         private Panel panel4;
         private components.PictureBoxComponent1 pbProfile;
+        private components.ButtonSidebar1 btnCustomers;
     }
 }

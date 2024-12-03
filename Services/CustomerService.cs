@@ -53,7 +53,7 @@ namespace bakery_management_system.Services
                 using (var conn = DatabaseHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT customer_id, name, phone, email, address FROM Customers";
+                    string query = "SELECT customer_id, customer_name, phone, email, address FROM Customers";
 
                     using (var cmd = new MySqlCommand(query, conn))
                     {
@@ -64,7 +64,7 @@ namespace bakery_management_system.Services
                                 customers.Add(new Customer
                                 {
                                     CustomerId = Convert.ToInt32(reader["customer_id"]),
-                                    Name = reader["name"].ToString(),
+                                    Name = reader["customer_name"].ToString(),
                                     Phone = reader["phone"].ToString(),
                                     Email = reader["email"].ToString(),
                                     Address = reader["address"].ToString()

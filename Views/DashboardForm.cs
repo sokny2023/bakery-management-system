@@ -136,5 +136,12 @@ namespace bakery_management_system.Views
             this.Hide();
         }
 
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            CustomerForm customerForm = new CustomerForm();
+            customerForm.Show();
+            this.Hide();
+        }
+
     }
 }

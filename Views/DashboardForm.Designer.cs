@@ -35,6 +35,10 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             panel2 = new Panel();
             pbProfile = new components.PictureBoxComponent1();
+            panel4 = new Panel();
+            lblWelcome = new Label();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel1 = new Panel();
             btnMyOrders = new components.ButtonSidebar1();
@@ -44,21 +48,18 @@
             pbLogo = new PictureBox();
             panel3 = new Panel();
             logoutButton1 = new components.LogoutButton();
-            txtSearch = new TextBox();
-            btnSearch = new Button();
-            lblWelcome = new Label();
-            panel4 = new Panel();
+            btnCustomers = new components.ButtonSidebar1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             fplContainer.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProfile).BeginInit();
+            panel4.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             panel3.SuspendLayout();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -146,6 +147,47 @@
             pbProfile.TabIndex = 0;
             pbProfile.TabStop = false;
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(lblWelcome);
+            panel4.Controls.Add(btnSearch);
+            panel4.Controls.Add(txtSearch);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1536, 73);
+            panel4.TabIndex = 1;
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 14F);
+            lblWelcome.ForeColor = Color.FromArgb(255, 101, 0);
+            lblWelcome.Location = new Point(24, 19);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(78, 32);
+            lblWelcome.TabIndex = 3;
+            lblWelcome.Text = "label1";
+            // 
+            // btnSearch
+            // 
+            btnSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(665, 17);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(103, 42);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += BtnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 14F);
+            txtSearch.Location = new Point(318, 19);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(321, 39);
+            txtSearch.TabIndex = 0;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -163,6 +205,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnCustomers);
             panel1.Controls.Add(btnMyOrders);
             panel1.Controls.Add(btnProducts);
             panel1.Controls.Add(btnMyPayments);
@@ -302,46 +345,27 @@
             logoutButton1.UseVisualStyleBackColor = false;
             logoutButton1.Click += logoutButton1_Click;
             // 
-            // txtSearch
+            // btnCustomers
             // 
-            txtSearch.Font = new Font("Segoe UI", 14F);
-            txtSearch.Location = new Point(318, 19);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(321, 39);
-            txtSearch.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(665, 17);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(103, 42);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += BtnSearch_Click;
-            // 
-            // lblWelcome
-            // 
-            lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Segoe UI", 14F);
-            lblWelcome.ForeColor = Color.FromArgb(255, 101, 0);
-            lblWelcome.Location = new Point(24, 19);
-            lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(78, 32);
-            lblWelcome.TabIndex = 3;
-            lblWelcome.Text = "label1";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(lblWelcome);
-            panel4.Controls.Add(btnSearch);
-            panel4.Controls.Add(txtSearch);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(3, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1536, 73);
-            panel4.TabIndex = 1;
+            btnCustomers.BackColor = SystemColors.Control;
+            btnCustomers.BackgroundColor = SystemColors.Control;
+            btnCustomers.BorderColor = Color.PaleVioletRed;
+            btnCustomers.BorderRadius = 10;
+            btnCustomers.BorderSize = 0;
+            btnCustomers.FlatAppearance.BorderSize = 0;
+            btnCustomers.FlatStyle = FlatStyle.Flat;
+            btnCustomers.Font = new Font("Segoe UI Semibold", 12F);
+            btnCustomers.ForeColor = Color.Black;
+            btnCustomers.Location = new Point(9, 360);
+            btnCustomers.Name = "btnCustomers";
+            btnCustomers.Padding = new Padding(15, 5, 30, 5);
+            btnCustomers.Size = new Size(188, 50);
+            btnCustomers.TabIndex = 8;
+            btnCustomers.Text = "Customers";
+            btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomers.TextColor = Color.Black;
+            btnCustomers.UseVisualStyleBackColor = false;
+            btnCustomers.Click += btnCustomers_Click;
             // 
             // DashboardForm
             // 
@@ -357,12 +381,12 @@
             tableLayoutPanel4.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbProfile).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -388,5 +412,6 @@
         private Label lblWelcome;
         private Button btnSearch;
         private TextBox txtSearch;
+        private components.ButtonSidebar1 btnCustomers;
     }
 }
