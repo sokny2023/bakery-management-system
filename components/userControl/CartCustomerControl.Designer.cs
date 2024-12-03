@@ -32,8 +32,8 @@
             lblPhone = new Label();
             lblEmail = new Label();
             lblAddress = new Label();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            btnUpdate = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnUpdate).BeginInit();
             SuspendLayout();
             // 
             // lblName
@@ -76,22 +76,23 @@
             lblAddress.TabIndex = 3;
             lblAddress.Text = "Address";
             // 
-            // pictureBox1
+            // btnUpdate
             // 
-            pictureBox1.Image = Properties.Resources.edit;
-            pictureBox1.Location = new Point(1217, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(49, 37);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
+            btnUpdate.Image = Properties.Resources.edit;
+            btnUpdate.Location = new Point(1217, 12);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(49, 37);
+            btnUpdate.SizeMode = PictureBoxSizeMode.Zoom;
+            btnUpdate.TabIndex = 5;
+            btnUpdate.TabStop = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // CartCustomerControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(pictureBox1);
+            Controls.Add(btnUpdate);
             Controls.Add(lblAddress);
             Controls.Add(lblEmail);
             Controls.Add(lblPhone);
@@ -99,7 +100,7 @@
             Margin = new Padding(0);
             Name = "CartCustomerControl";
             Size = new Size(1427, 57);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnUpdate).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -110,6 +111,6 @@
         private Label lblPhone;
         private Label lblEmail;
         private Label lblAddress;
-        private PictureBox pictureBox1;
+        private PictureBox btnUpdate;
     }
 }

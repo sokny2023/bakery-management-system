@@ -7,6 +7,69 @@ namespace bakery_management_system.Services
 {
     public class CustomerService
     {
+        public bool UpdateCustomer(Customer customer)
+        {
+            using (var connection = DatabaseHelper.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                        UPDATE Customers 
+                        SET customer_name = @name, 
+                            phone = @phone, 
+                            email = @email, 
+                            address = @address 
+                        WHERE customer_id = @id";
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@name", customer.Name);
+                        cmd.Parameters.AddWithValue("@phone", customer.Phone);
+                        cmd.Parameters.AddWithValue("@email", customer.Email ?? DBNull.Value.ToString());
+                        cmd.Parameters.AddWithValue("@address", customer.Address ?? DBNull.Value.ToString());
+                        cmd.Parameters.AddWithValue("@id", customer.CustomerId);
+
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error updating customer: {ex.Message}");
+                }
+            }
+        }
+
+        public bool AddCustomer(Customer customer)
+        {
+            using (var connection = DatabaseHelper.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                        INSERT INTO Customers (customer_name, phone, email, address)
+                        VALUES (@name, @phone, @email, @address)";
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@name", customer.Name);
+                        cmd.Parameters.AddWithValue("@phone", customer.Phone);
+                        cmd.Parameters.AddWithValue("@email", customer.Email ?? DBNull.Value.ToString());
+                        cmd.Parameters.AddWithValue("@address", customer.Address ?? DBNull.Value.ToString());
+
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error adding customer: {ex.Message}");
+                }
+            }
+        }
+
         public Customer GetCustomerByPhone(string phone)
         {
             using (var connection = DatabaseHelper.GetConnection())

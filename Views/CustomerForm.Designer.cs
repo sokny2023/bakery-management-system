@@ -63,7 +63,7 @@
             label2 = new Label();
             label1 = new Label();
             panel11 = new Panel();
-            buttonComponent11 = new components.ButtonComponent1();
+            btnAddCustomer = new components.ButtonComponent1();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -480,7 +480,6 @@
             panel10.Name = "panel10";
             panel10.Size = new Size(1394, 65);
             panel10.TabIndex = 2;
-            panel10.Paint += panel10_Paint;
             // 
             // label5
             // 
@@ -531,37 +530,36 @@
             label1.Size = new Size(160, 28);
             label1.TabIndex = 0;
             label1.Text = "Customer Name";
-            label1.Click += label1_Click;
             // 
             // panel11
             // 
-            panel11.Controls.Add(buttonComponent11);
+            panel11.Controls.Add(btnAddCustomer);
             panel11.Dock = DockStyle.Fill;
             panel11.Location = new Point(1441, 3);
             panel11.Name = "panel11";
             panel11.Size = new Size(214, 651);
             panel11.TabIndex = 1;
             // 
-            // buttonComponent11
+            // btnAddCustomer
             // 
-            buttonComponent11.BackColor = Color.FromArgb(255, 101, 0);
-            buttonComponent11.BackgroundColor = Color.FromArgb(255, 101, 0);
-            buttonComponent11.BorderColor = Color.PaleVioletRed;
-            buttonComponent11.BorderRadius = 10;
-            buttonComponent11.BorderSize = 0;
-            buttonComponent11.FlatAppearance.BorderSize = 0;
-            buttonComponent11.FlatStyle = FlatStyle.Flat;
-            buttonComponent11.Font = new Font("Segoe UI Semibold", 12F);
-            buttonComponent11.ForeColor = Color.White;
-            buttonComponent11.Location = new Point(14, 19);
-            buttonComponent11.Name = "buttonComponent11";
-            buttonComponent11.Padding = new Padding(15, 8, 15, 8);
-            buttonComponent11.Size = new Size(185, 50);
-            buttonComponent11.TabIndex = 0;
-            buttonComponent11.Text = "Add Customer";
-            buttonComponent11.TextColor = Color.White;
-            buttonComponent11.UseVisualStyleBackColor = false;
-            buttonComponent11.Click += buttonComponent11_Click;
+            btnAddCustomer.BackColor = Color.FromArgb(255, 101, 0);
+            btnAddCustomer.BackgroundColor = Color.FromArgb(255, 101, 0);
+            btnAddCustomer.BorderColor = Color.PaleVioletRed;
+            btnAddCustomer.BorderRadius = 10;
+            btnAddCustomer.BorderSize = 0;
+            btnAddCustomer.FlatAppearance.BorderSize = 0;
+            btnAddCustomer.FlatStyle = FlatStyle.Flat;
+            btnAddCustomer.Font = new Font("Segoe UI Semibold", 12F);
+            btnAddCustomer.ForeColor = Color.White;
+            btnAddCustomer.Location = new Point(14, 19);
+            btnAddCustomer.Name = "btnAddCustomer";
+            btnAddCustomer.Padding = new Padding(15, 8, 15, 8);
+            btnAddCustomer.Size = new Size(185, 50);
+            btnAddCustomer.TabIndex = 0;
+            btnAddCustomer.Text = "Add Customer";
+            btnAddCustomer.TextColor = Color.White;
+            btnAddCustomer.UseVisualStyleBackColor = false;
+            btnAddCustomer.Click += btnAddCustomer_Click;
             // 
             // CustomerForm
             // 
@@ -633,6 +631,6 @@
         private Label label4;
         private Label label3;
         private Panel panel11;
-        private components.ButtonComponent1 buttonComponent11;
+        private components.ButtonComponent1 btnAddCustomer;
     }
 }

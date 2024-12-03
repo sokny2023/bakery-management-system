@@ -1,5 +1,6 @@
 ﻿using bakery_management_system.components.userControl;
 using bakery_management_system.Controllers;
+using bakery_management_system.Views.customer;
 
 namespace bakery_management_system.Views
 {
@@ -36,24 +37,11 @@ namespace bakery_management_system.Views
             }
         }
 
-        private void cartCustomerControl1_Load(object sender, EventArgs e)
+        private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-
+            AddCustomerForm addCustomerForm = new AddCustomerForm();
+            addCustomerForm.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void buttonComponent11_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
